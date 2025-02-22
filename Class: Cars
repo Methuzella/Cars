@@ -18,11 +18,13 @@
 #include <string>
 using namespace std;
 
+
+
 class Cars{
     public:
-           string make, model,carStatus;
+           string make, model,carStatus,motion;
            int year;
-           float fuelLevel,FuelAdded, maxSpeed=200.0,defaultSpeed=10.0, speed;
+           float fuelLevel,FuelAdded, maxSpeed=15.0,defaultSpeed=4, speed=0;
         
           void getCarInfo(){
               cout<< "This is car was manufactured/produced by "<<make<< " it is a "<< year<<" "<< model << ". It currently has about "<< fuelLevel<<" litres of fuel."<<endl;
@@ -41,7 +43,7 @@ class Cars{
               }
           }
           void checkfuel(){
-            if (fuelLevel<=1){
+            if (fuelLevel<=0.01){
                   cout<<"Fuel is running low: "<<fuelLevel << " millilitres remaining"<<endl;
                   ///if stopped add fuel
                   if(carStatus=="Off"){
@@ -53,50 +55,63 @@ class Cars{
               }
           }
 ////////////////
-         void accelerate(){
-             if(carStatus=="On" && speed<=maxSpeed){
-                 if(speed==0){
-                     speed=+defaultSpeed;
-                     cout<<"Car has started and accelerated to: "<< speed<<endl;
-                 }
-                 elseif( speed>=defaultSpeed ){
-                     while(..........){
-                         speed+=1;
-                         fuelLevel-=0.001;
-                         if (fuelLevel==0){
-                             speed=0;
-                             cout<<"There is no fuel. ";
-                             carbrake();
-                             break;
-                         }
-                         if(speed==maxSpeed){
-                             cout<<"Maximum speed reached"<<endl;
-                             break;
-                         }
-                         else {
-                             
-                         }
-                     }
-                 }
-             }
+
+
+
+
+          void accelerate(){
+                 while(carStatus=="On" && speed<maxSpeed){
+        
+                    if(speed==0){
+                          speed=+defaultSpeed;
+                        cout<<"Car has started and accelerated to: "<< speed<<endl;
+                    }
+                 
+                    if(speed>=defaultSpeed ){
+                        speed+=1;
+                        fuelLevel-=0.001;
+            
+                        if (fuelLevel==0){
+                           speed=0;///assume instantaneous stop
+                           cout<<"There is no fuel. ";
+                           carbrake();
+                           break;
+                        }
+            
+                        if (motion!="move"){
+                            break;             
+                        }
+                     
+                    }
+                    cout<<"Car has started and accelerated to: "<< speed<<endl;
+               if (carStatus=="On" && speed==maxSpeed){
+                   cout<<"Maximum speed reached"<<endl;
          }
+    
+
+    }////if the car is already at max speed, the car does not accelerate
+}///////////////////////////////////////////////////////////////////////////////////////////////////
+
          void carbrake(){
              if (speed==0){
-                 cout<<"The car has stopped"<<end;
+                 cout<<"The car has stopped"<<endl;
              }
              
          }
+
 };
 
 //Starting and stopping the car
 void Cars::startEngine(){
          carStatus="On";
          cout<<"The car has been turned on"<<endl;
+         motion= "move";
          accelerate();
 }
 void Cars::stopEngine(){
      if (carStatus=="On"){
          carStatus="Off";
+         motion="stationary";
          cout<<"The car has been turned off"<<endl;
      }
 }
@@ -109,7 +124,9 @@ int main() {
          Merc.year= 2016;
          Merc.fuelLevel= 0.02;
          Merc.getCarInfo();
+         
          Merc.startEngine();
-         Merc.checkfuel();
+         Merc.accelerate();
+         //Merc.checkfuel();
          Merc.stopEngine();
 }
