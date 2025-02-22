@@ -136,6 +136,33 @@ int main() {
 
 
 
+//Pointers
+
+//A variable that holds the memory address(LOCATION WHRE DATA IS STORED) of another variable.
+Example 
+int *ptr;  // Pointer to an integer//The asterisk tells the compiler that this variable will hold a memory address of the specified type.
+The actual memory address is assigned to the pointer as shown below
+int num = 5;
+int *ptr = &num;  // ptr now holds the address of num
+//To get the an actual stored at the address the pointer points to we must derefernce the pointer,
+int num = 5;
+int *ptr = &num;  // ptr points to num
+std::cout << *ptr;  // Dereferencing ptr to access the value of num, Outputs 5
+// There are different types of pointers
+
+   (1) Null Pointer
+       //A null pointer is a pointer that does not point to any valid memory address.
+       int *ptr = nullptr;  // ptr is a null pointer
+    (2)Void Pointer
+         //A void pointer is a pointer that can point to any data type but you cannot directly dereference a void pointer
+         void *ptr;  // A void pointer
+         int num = 5;
+         ptr = &num;  // ptr can point to any type of data
+
+         // To dereference a void pointer, cast it to the correct type
+         std::cout << *(static_cast<int*>(ptr));  // Outputs 5
+ 
+
 
 
 
