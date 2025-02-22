@@ -118,7 +118,21 @@ typedef unsigned int uint;
 uint x = 10;  // x is an unsigned int
 
 
+(8) Mutable 
 
+//used inside a class to allow a member variable to be modified even if the object is declared as const. 
+Example
+class MyClass {
+public:
+    mutable int x;
+    MyClass() : x(0) {}
+};
+
+int main() {
+    const MyClass obj;  // Constant object
+    obj.x = 10;  // Allowed because x is mutable
+    return 0;
+}
 
 
 
