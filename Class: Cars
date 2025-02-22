@@ -12,7 +12,14 @@ int a = 5;
 int &ref = a;  // ref is a reference to a, (note how a was initialized, now the reference cannot be changed to another name)//now if ref is change to 24  then a changes too.
 a referencerence can be constant(cannot be modiefied) this is done by adding the "const" type modifier to the reference..."const int &ref = a;" but this is mostly done when passing large object  you don't want modified(done by const) and copied(done by &)
 
-
+(2)Passing Arguments by Reference
+//When you pass arguments to functions by reference, the function can modify the original variables (if they are non-const) not the copies typically made.
+ example 
+void modify(int &x) {
+    x = 20;
+}
+int num = 10;
+modify(num);  // num becomes 20
 
 
 
