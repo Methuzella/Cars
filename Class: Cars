@@ -1,6 +1,5 @@
 // Referencing
 
-
 //A feature that allows you to create an alias(alternative name) for a variable  and any operation performed on the reference directly affects the original variable.
 
 Where would you see referencing?
@@ -50,7 +49,8 @@ You can also have references to pointers. This means you can modify the pointer 
 Example 
 int *p = &a;
 int *&ref_p = p;  // ref_p is a reference to pointer p
-
-
+//////////////////////////////////////////////////////////////////////////////////
+To conclude, When you pass a variable by value, a copy of the variable is made, and the function works with that copy rather than the original variable and the changes made to the parameter inside the function do not affect the original argument outside the function, this is inefficient if the variable is large (like a large object or array) because a copy is created.
+When you pass a variable by reference, the function gets a reference (alias) to the original variable, not a copy. This means any changes made to the parameter inside the function will affect the original variable, this is more efficient for large objects or structures, as no copy is made, if you further add const to the reference then pass it it means the function can use it but can make no changes to it.
 
 
