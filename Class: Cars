@@ -1,8 +1,18 @@
 // Referencing
 
 
-//A feature that allows you to create an alias(alternative name) for a variable
+//A feature that allows you to create an alias(alternative name) for a variable  and any operation performed on the reference directly affects the original variable.
+
+Where would you see referencing?
+
+(1) Reference declaration
+
 Example 
 int a = 5;     
-int &ref = a;  // ref is a reference to a, (note how a was initialized
-//now if ref is change to 24  then a changes too.
+int &ref = a;  // ref is a reference to a, (note how a was initialized, now the reference cannot be changed to another name)//now if ref is change to 24  then a changes too.
+a referencerence can be constant(cannot be modiefied) this is done by adding the "const" type modifier to the reference..."const int &ref = a;" but this is mostly done when passing large object  you don't want modified(done by const) and copied(done by &)
+
+
+
+
+
