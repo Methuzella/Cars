@@ -85,7 +85,38 @@ signed int a = -5;  // a can be negative because it is signed
 
     (b) involves pointer????
 
-(5)
+(5) Static
+
+    (a) Static Variables
+        // When applied to a variable inside a function, static ensures that the variable retains its value between function calls, MEANING THE variable value does not change back to its initial form if it has some form of increment in the function, it just keeps increasing the more the function is called
+         example
+         void counter() {
+          static int count = 0;  // Retains value between function calls
+          count++;
+          std::cout << count << std::endl;
+        } ////just call counter a bunch of times and you'll understand what I MEAN.
+
+    (b)Static Variables at Global Level
+       //When applied to a global variable or function, static restricts its visibility to the file in which it is declared (i.e., it cannot be accessed outside of the file).
+        static int x = 5;  // Only accessible within this file
+
+(6)Extern
+
+//Declares that a variable or function that is defined in another file. It tells the compiler that the definition exists elsewhere, usually in another source file.
+Example 
+// In file1.cpp
+int num = 10;
+
+// In file2.cpp
+extern int num;  // Declares that num is defined elsewhere (in file1.cpp)
+
+(7) Typedef
+
+//t is used to create an alias for an existing type.
+Example
+typedef unsigned int uint;
+uint x = 10;  // x is an unsigned int
+
 
 
 
