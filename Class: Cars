@@ -1,3 +1,8 @@
-/*There are 2 ways to define a member function:
+// Referencing
 
-.....
+
+//A feature that allows you to create an alias(alternative name) for a variable
+Example 
+int a = 5;     
+int &ref = a;  // ref is a reference to a, (note how a was initialized
+//now if ref is change to 24  then a changes too.
