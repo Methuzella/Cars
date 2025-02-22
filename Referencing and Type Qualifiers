@@ -1,4 +1,4 @@
-// Referencing
+// Referencing and Type Qualifiers
 
 //A feature that allows you to create an alias(alternative name) for a variable  and any operation performed on the reference directly affects the original variable.
 
@@ -53,4 +53,75 @@ int *&ref_p = p;  // ref_p is a reference to pointer p
 To conclude, When you pass a variable by value, a copy of the variable is made, and the function works with that copy rather than the original variable and the changes made to the parameter inside the function do not affect the original argument outside the function, this is inefficient if the variable is large (like a large object or array) because a copy is created.
 When you pass a variable by reference, the function gets a reference (alias) to the original variable, not a copy. This means any changes made to the parameter inside the function will affect the original variable, this is more efficient for large objects or structures, as no copy is made, if you further add const to the reference then pass it it means the function can use it but can make no changes to it.
 
+
+
+
+
+/*/ Type Qualifiers
+
+(1) Const
+//Makes a variable or reference immutable/unchangeble (cannot be changed)
+
+   (a) Constant Variable
+      const int num = 10;
+      num = 20;  // Error: cannot modify a constant variable
+
+    (b)Constant Reference
+       const int &ref = x;  // ref is a constant reference to x
+       ref = 10;  // Error: cannot modify the value of x through the reference
+(2) Unsigned
+/// Indicates a variable can only store non-negative numbers, expanding the range of positive values(can store numbers between 0 to 4,294,967,295) the type(integer type) can hold.
+unsigned int x = 10;
+unsigned int y = 20;
+
+(3) Signed
+//Specifies that a variable can hold both negative and positive values (default for int). \
+signed int a = -5;  // a can be negative because it is signed
+
+(4) Void
+//Represents an absence of value or return type.
+   (a)Void Function Return Type: When a function does not return a value.
+    void printMessage() {}
+
+    (b) involves pointer????
+
+(5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
