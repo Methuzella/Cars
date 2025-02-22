@@ -14,12 +14,43 @@ a referencerence can be constant(cannot be modiefied) this is done by adding the
 
 (2)Passing Arguments by Reference
 //When you pass arguments to functions by reference, the function can modify the original variables (if they are non-const) not the copies typically made.
- example 
+Example 1
 void modify(int &x) {
     x = 20;
 }
 int num = 10;
 modify(num);  // num becomes 20
+Example 2
+// Question 6: Friend Function
+class Rectangle {
+private:
+    int width, height;
+
+public:
+    // Constructor
+    Rectangle(int w, int h) : width(w), height(h) {}
+
+    // Friend function to calculate the area
+    friend int calculateArea(Rectangle &r);
+};
+
+// Friend function definition
+int calculateArea(Rectangle &r) {
+    return r.width * r.height; // Access private members directly
+}// above is a class Rectangle at an instance r that has been passed to the function, though this is a smaller class we will assume it is very big, in which case by referencing here we have prevented the creation of a Rectangle class copy from being made and saved memory (ignore the specifics of the friend function and focus on what I am trying to push across to you)
+
+(3) Reference to Arrays
+You can create references to arrays, but you have to be careful with the syntax
+int arr[3] = {1, 2, 3};
+int (&ref_arr)[3] = arr;  // ref_arr is a reference to the array arr
+
+(4) Reference to a Pointer
+
+You can also have references to pointers. This means you can modify the pointer itself (i.e., which object it points to).
+Example 
+int *p = &a;
+int *&ref_p = p;  // ref_p is a reference to pointer p
+
 
 
 
