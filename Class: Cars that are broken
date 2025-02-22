@@ -1,0 +1,98 @@
+/*There are 2 ways to define a member function:
+
+>>>>Inside class definition
+    //What you have been doing till now 
+>>>Outside class definition
+    // We have to first declare the function prototype in the class definition. without giving it a definition(body)
+    // Then we have to use the scope resolution::operator along with the class name and function name out side the class and define it..
+   / void Members::namesAndDetails(){
+  //function definition comes here
+}*/
+
+//A class to represent a car with attributes like make, model, year, and fuel level. Methods could include accelerate(), brake(), refuel(), and getCarInfo().
+
+// C++ program to illustrate how create a simple class and
+// C++ program to illustrate how create a simple class and
+// object
+
+class Vehicle{
+    protected:
+       int Year;
+       string seatingCapacity, enginetype;
+};
+class Car : public Vehicle{
+ 
+    string Make, Model;
+      Car (string make, string model, int year,int seatingcapacity){
+          Year=year;
+          Model=model;
+          Make=make;
+          seatingCapacity=seatingcapacity;
+      }
+};
+class Bike: public Vehicle{
+
+    string Make, Model;
+      Bike (string make, string model, int year,int seatingcapacity){
+          Year=year;
+          Model=model;
+          Make=make;
+          seatingCapacity=seatingcapacity;
+}
+};
+class Person{
+    private:
+        int Age;
+        string Name;
+    public:
+        Person(string name, int age){
+            Name=name;
+            Age=age;
+        }
+    void getPerson_Info(){
+         cout<<"The person is named "<< Name<<" and they are "<< Age<<" years old"<<endl;
+}
+};
+class Book{
+     private:
+      string Title, Author;
+      float Price;
+     public:
+     void setTitle_and_Author(string title, string author){
+         Title=title;
+         Author= author;
+     }
+     void setPrice(float price){
+         Price=price;
+     }
+     void getBook_Info(){
+         cout<<"Title of the book: "<< Title<<"\nAuthor: "<< Author<<"\nPrice: $"<<Price<<endl;
+     }
+ };
+class Circle{
+    public:
+    int Radius;
+    
+    
+        Circle(int radius){
+            Radius=radius;
+        }
+        float calculateCircleArea(){
+            return M_PI*Radius;
+        }
+    
+    
+};
+ int main(){
+     Book Allure;
+     Allure.setTitle_and_Author("Allure", "Kizmith Lyle");
+     Allure.setPrice(21.5);
+     Allure.getBook_Info();
+     Person Kizmith("Kizmuth", 24);
+     Kizmith.getPerson_Info();
+     Circle A(23);
+     Circle B(A);///this is called a copy constructor
+     cout<<A.Radius<<endl;
+     cout<<A.calculateCircleArea();
+ }
+ 
