@@ -14,3 +14,96 @@
 // C++ program to illustrate how create a simple class and
 // C++ program to illustrate how create a simple class and
 // object
+////food for thouht down below
+#include <bits/stdc++.h>
+#include <cmath>
+using namespace std;
+
+// Question 4: Copy Constructor
+class Circle {
+public:
+    int Radius;
+
+    // Constructor
+    Circle(int radius) {
+        Radius = radius;
+    }
+
+    // Copy Constructor
+    Circle(const Circle &c) {
+        Radius = c.Radius; // Copy the radius from the existing Circle
+        cout << "Copy constructor called!" << endl;
+    }
+
+    // Calculate Circle Area
+    float calculateCircleArea() {
+        return M_PI * Radius * Radius;  // Correct formula for area (pi * r^2)
+    }
+};
+
+// Question 5: Operator Overloading (Unary ++)
+class Counter {
+public:
+    int count;
+
+    // Constructor
+    Counter() : count(0) {}
+
+    // Unary operator overload for increment (++)
+    void operator++() {
+        count++;  // Increment the count
+    }
+
+    // Display the counter value
+    void display() {
+        cout << "Counter value: " << count << endl;
+    }
+};
+
+// Question 6: Friend Function
+class Rectangle {
+private:
+    int width, height;
+
+public:
+    // Constructor
+    Rectangle(int w, int h) : width(w), height(h) {}
+
+    // Friend function to calculate the area
+    friend int calculateArea(Rectangle &r);
+};
+
+// Friend function definition
+int calculateArea(Rectangle &r) {
+    return r.width * r.height; // Access private members directly
+}
+
+int main() {
+    // Creating a Book object
+    Book Allure;
+    Allure.setTitle_and_Author("Allure", "Kizmith Lyle");
+    Allure.setPrice(21.5);
+    Allure.getBook_Info();
+
+    // Creating a Person object
+    Person Kizmith("Kizmuth", 24);
+    Kizmith.getPerson_Info();
+
+    // Creating a Circle object and using the Copy Constructor
+    Circle A(23);
+    Circle B(A); // This calls the copy constructor
+    cout << "Radius of Circle A: " << A.Radius << endl;
+    cout << "Area of Circle A: " << A.calculateCircleArea() << endl;
+
+    // Operator Overloading (Unary ++)
+    Counter c;
+    c.display();
+    ++c; // Increment the count
+    c.display();
+
+    // Using the Friend Function
+    Rectangle rect(5, 6);
+    cout << "Area of Rectangle: " << calculateArea(rect) << endl;
+
+    return 0;
+}
