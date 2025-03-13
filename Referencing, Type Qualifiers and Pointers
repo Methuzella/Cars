@@ -162,10 +162,49 @@ std::cout << *ptr;  // Dereferencing ptr to access the value of num, Outputs 5
          // To dereference a void pointer, cast it to the correct type
          std::cout << *(static_cast<int*>(ptr));  // Outputs 5
  
+/////Angled brackets are typically used in C++ to represent something that needs a parameterizable type. This is used with static_cast to determine what data type the argument should be converted to (e.g. static_cast<int>(x) will return the value of x as an int).
 
+////////////////////////////////////////////////////Learning Cpp Notes and activities
+// std::int32_t and others a special int types that are used in scenarions that require size. As we know that int has a limited size, these act as a way to give more bytes for int thus increasing its overal size, however be careful while using them because std::int8_t and std::uint8_t should generally be avoided, as they tend to behave like chars instead of integers.
+//The sizeof operator can be used to return the size of a type in bytes.
+//Signed integers are used for holding positive and negative whole numbers, including 0. The set of values that a specific data type can hold is called its range. When using integers, keep an eye out for overflow and integer division problems.
+//Unsigned integers only hold positive numbers (and 0), and should generally be avoided unless you’re doing bit-level manipulation.
+//The constexpr object can be evaluated at runtime or compile-time while the The const object can be evaluated at runtime.
+// std::string is a form of dynamic memory allocation.....If std::string doesn’t have enough memory to store a string, it will request additional memory (at runtime) using a form of memory allocation known as dynamic memory allocation. This ability to acquire additional memory is part of what makes std::string so flexible, but also comparatively slow.
+/////string note
+   #include <iostream>
+#include <string>
 
+int main()
+{
+    std::cout << "Enter your full name: ";
+    std::string name{};
+    std::cin >> name; // this won't work as expected since std::cin breaks on whitespace
+    std::cout << "Enter your favorite color: ";
+    std::string color{};
+    std::cin >> color;
+    std::cout << "Your name is " << name << " and your favorite color is " << color << '\n';
+    return 0;
+}
+Though inputing data using std:;cin allows us to iput a ton of data if we include a whitespace and such, this is only feasible when dealing with numbers/values and not string, instring the whitespace saves the 2nd input and uses it in the next std:;cin called. This brings up the need for an alternative and that alterantive is std::getline()
+      1) You need 2 arguments things to use the getline function, std::cin and the string variable.
+//include <string> For std::string and std::getline
+int main()
+{
+    std::cout << "Enter your full name: ";
+    std::string name{};
+    std::getline(std::cin >> std::ws, name); // read a full line of text into name
 
+    std::cout << "Enter your favorite color: ";
+    std::string color{};
+    std::getline(std::cin >> std::ws, color); // read a full line of text into color
 
+    std::cout << "Your name is " << name << " and your favorite color is " << color << '\n';
+
+    return 0;
+}
+But now a new question arises, what is std::ws?
+To answer this question we need to delve into a topic called output and input manipulators........output manipulators ( allow us to alter the way output is displayed), an example is the std::setprecision() functon which can change the number of digits of precision that std::cout displayed(in float numbers or scientific notation), input manipulators alter the way that input is accepted, std::ws is one of them it tells std::cin to ignore any leading whitespace before extraction. Leading whitespace is any whitespace character (spaces, tabs, newlines) that occur at the start of the string .
 
 
 
