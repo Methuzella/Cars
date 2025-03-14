@@ -115,7 +115,7 @@ extern int num;  // Declares that num is defined elsewhere (in file1.cpp)
 //t is used to create an alias for an existing type.
 Example
 typedef unsigned int uint;
-uint x = 10;  // x is an unsigned int
+uint x = 10;  // x is an unsigned int///for some reason I cant std::cout uint but i CAN do so for x? what do you mean by alias?
 
 
 (8) Mutable 
@@ -138,16 +138,16 @@ int main() {
 
 //Pointers
 
-//A variable that holds the memory address(LOCATION WHRE DATA IS STORED) of another variable.
+//You learned from the previous chapter, that we can get the memory address of a variable by using the & operator: and pointer is a variable that holds the memory address(stores the memory address as its value.) of another variable.
 Example 
-int *ptr;  // Pointer to an integer//The asterisk tells the compiler that this variable will hold a memory address of the specified type.
+ // Pointer to an integer//The asterisk tells the compiler that this variable will hold a memory address of the specified type.
 The actual memory address is assigned to the pointer as shown below
-int num = 5;
-int *ptr = &num;  // ptr now holds the address of num
+ // ptr now holds the address of num
 //To get the an actual stored at the address the pointer points to we must derefernce the pointer,
 int num = 5;
 int *ptr = &num;  // ptr points to num
-std::cout << *ptr;  // Dereferencing ptr to access the value of num, Outputs 5
+std::cout << *ptr;// Dereferencing ptr to access the value of num, Outputs 5
+std::cout<<ptr; //this gives us the memory address stored in ptr
 // There are different types of pointers
 
    (1) Null Pointer
